@@ -44,14 +44,41 @@
 
 # which year do you want to check?
 
-year = int(input("which year do you want to check? "))
-if year % 4 == 0:
-    if year % 100 == 0:
-        if year % 400 == 0:
-            print("Leap!")
-        else:
-            print("Don't leap")
-    else:
-        print("Don't leap")
+# year = int(input("which year do you want to check? "))
+# if year % 4 == 0:
+#     if year % 100 == 0:
+#         if year % 400 == 0:
+#             print("Leap!")
+#         else:
+#             print("Don't leap")
+#     else:
+#         print("Leap!")
+# else:
+#     print ("Don't leap!")
+
+#which pizza do you like?
+# pizza price for small is 15, for medium is 20 and large is 25.
+# peperoni for small is 2, for medium and large is 3.
+
+bill = 0
+
+size = input("choose a size")
+if size == "S":
+    bill += 15
+elif size == "M":
+    bill += 20
 else:
-    print ("Don't leap!")
+    bill +=25
+
+add_peperoni = input("voce quer peperoni?")
+if add_peperoni == "Sim":
+    if size == "S":
+        bill += 2
+    else:
+        bill += 3
+
+add_chesse = input("voce quer queijo")
+if add_chesse == "Sim":
+    bill += 2
+
+print(f"Your final bill is ${bill}")
