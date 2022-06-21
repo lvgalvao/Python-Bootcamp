@@ -27,17 +27,31 @@
 # else:
 #     print("voce é magro")
 
-height = float(input("what is your height in m? "))
-weight = float(input("what is your weight in kg? "))
+# height = float(input("what is your height in m? "))
+# weight = float(input("what is your weight in kg? "))
 
-imc = weight / (height ** 2)
-if imc > 35:
-    print("clinically obese")
-elif imc > 30:
-    print("obese")
-elif imc > 25:
-    print("overweight")
-elif imc > 18.5:
-    print("normalweight")
+# imc = weight / (height ** 2)
+# if imc > 35:
+#     print("clinically obese")
+# elif imc > 30:
+#     print("obese")
+# elif imc > 25:
+#     print("overweight")
+# elif imc > 18.5:
+#     print("normalweight")
+# else:
+#     print("underweight")
+
+# which year do you want to check?
+
+year = int(input("which year do you want to check? "))
+if year % 4 == 0:
+    if year % 100 == 0:
+        if year % 400 == 0:
+            print("Leap!")
+        else:
+            print("Don't leap")
+    else:
+        print("Don't leap")
 else:
-    print("underweight")
+    print ("Don't leap!")
