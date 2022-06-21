@@ -13,16 +13,31 @@
 # else:
 #     print("par")
 
-peso = int(input("qual o seu peso?"))
+# peso = int(input("qual o seu peso?"))
 
-if peso > 50:
-    print("voce é pesado")
-    idade = int(input("qual sua idade?"))
-    if idade > 18:
-        print("voce pode dirigir")
-    else:
-        print("voce é magro e novo")
-elif peso > 30:
-    print("voce é médio")
+# if peso > 50:
+#     print("voce é pesado")
+#     idade = int(input("qual sua idade?"))
+#     if idade > 18:
+#         print("voce pode dirigir")
+#     else:
+#         print("voce é magro e novo")
+# elif peso > 30:
+#     print("voce é médio")
+# else:
+#     print("voce é magro")
+
+height = float(input("what is your height in m? "))
+weight = float(input("what is your weight in kg? "))
+
+imc = weight / (height ** 2)
+if imc > 35:
+    print("clinically obese")
+elif imc > 30:
+    print("obese")
+elif imc > 25:
+    print("overweight")
+elif imc > 18.5:
+    print("normalweight")
 else:
-    print("voce é magro")
+    print("underweight")
