@@ -1,10 +1,26 @@
-# 🚨 Don't change the code below 👇
-student_heights = input("Input a list of student heights ").split()
-for n in range(0, len(student_heights)):
-  student_heights[n] = int(student_heights[n])
-# 🚨 Don't change the code above 👆
-soma_student = 0
-for n in student_heights[n]:
-    soma_student += student_heights[n]
+height_of_students = input("Please insert ther height of the students").split()
+# convert an array of string to an array of int
+for height in range(0, len(height_of_students)):
+    height_of_students[height] = int(height_of_students[height])
+print(height_of_students)
 
-#Write your code below this row 👇
+# total height of students
+total_height = 0
+for n in height_of_students:
+    total_height += n
+
+# number of students
+count_students = 0
+for n in height_of_students:
+    count_students += 1
+
+print (total_height)
+print (count_students)
+
+# find the highest height
+highest_height = 0
+for n in height_of_students:
+    if n > height_of_students:
+        highest_height = height_of_students
+print(highest_height)
+
