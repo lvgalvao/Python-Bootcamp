@@ -1,26 +1,30 @@
-height_of_students = input("Please insert ther height of the students").split()
-# convert an array of string to an array of int
-for height in range(0, len(height_of_students)):
-    height_of_students[height] = int(height_of_students[height])
-print(height_of_students)
+#Password Generator Project
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-# total height of students
-total_height = 0
-for n in height_of_students:
-    total_height += n
+print("Welcome to the PyPassword Generator!")
+nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-# number of students
-count_students = 0
-for n in height_of_students:
-    count_students += 1
+#Eazy Level - Order not randomised:
+#e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+eazy_password = 0
+for n in range(0, nr_letters):
+    eazy_password += random.choice(letters)
 
-print (total_height)
-print (count_students)
+for n in range(0, nr_symbols):
+    eazy_password += random.choice(numbers)
 
-# find the highest height
-highest_height = 0
-for n in height_of_students:
-    if n > height_of_students:
-        highest_height = height_of_students
-print(highest_height)
+for n in range(0, nr_numbers):
+    eazy_password += random.choice(symbols)
 
+
+print(eazy_password)
+# random.shuffle(eazy_password)
+# print(eazy_password)
+
+#Hard Level - Order of characters randomised:
+#e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
