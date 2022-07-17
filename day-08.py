@@ -10,7 +10,7 @@
 
 # greet_with_name("Jorge")
 
-def greet_with_two_parameters(name, location)
+def greet_with_two_parameters(name, location):
     print(f"hello {name} are you from {location}")
 
-greet_with_two_parameters("Jorge", "Brasil")
+greet_with_two_parameters(location = "Jorge", name = "Brasil")
