@@ -1,42 +1,29 @@
-# student_scores = {
-#   "Harry": 81,
-#   "Ron": 78,
-#   "Hermione": 99, 
-#   "Draco": 74,
-#   "Neville": 62,
-# }
-# # 🚨 Don't change the code above 👆
+from replit import clear
+from artlogo import logo
 
-# #TODO-1: Create an empty dictionary called student_grades.
+print(logo)
+print("Welcome to the bid system")
 
-# student_grades = {
-# }
+bids = {}
+bidding_finished = False
 
-# #TODO-2: Write your code below to add the grades to student_grades.👇
+def find_highest_biddder(bidden_record):
+    highest_bidder = 0
+    winner = ""
+    for bidder in bidden_record:
+        bid_amound = bidden_record[bidder]
+        if bid_amound > highest_bidder:
+            highest_bidder = bid_amound
+            winner = bidder
+    print(f"The winner is {winner} with the bid {highest_bidder}")
 
-# # Score 91-100 grade = "Outstanding"
-# # Score 81-90 grade = "Exceeds Expectations"
-# # Score 71-80 grade = "Acceptable"
-# # Score 0-70 grade = "Normal"
-
-# for student in student_scores:
-#     score = student_scores[student]
-#     if score >= 91:
-#         student_grades[student] = "Outstanding"
-#     elif score >= 81:
-#         student_grades[student] = "Exceeds Expectations"
-#     elif score >= 71:
-#         student_grades[student] = "Acceptable"
-#     elif score>= 0:
-#         student_grades[student] = "Normal"
-
-# # 🚨 Don't change the code below 👇
-# print(student_grades)
-
-starting_dictionary = {
-    "a": 9,
-    "b": 8,
-}
-
-starting_dictionary["c"] = 7
-print(starting_dictionary)
+while not bidding_finished:
+    name = str(input("What is your name? "))
+    offer = int(input("What is your offer? $"))
+    bids[name] = offer
+    keep_bidding = input("Do you want to place other bid? ")
+    if keep_bidding == "no":
+        bidding_finished = True
+        find_highest_biddder(bids)
+    else:
+        clear()
