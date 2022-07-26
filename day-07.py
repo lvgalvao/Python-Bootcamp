@@ -13,7 +13,7 @@ end_of_game = False
 lives = 6
 
 #TODO-3: - Import the logo from hangman_art.py and print it at the start of the game.
-from .hangman_art import logo
+from .artlogo import logo
 print(logo)
 
 #Testing code
@@ -57,5 +57,5 @@ while not end_of_game:
         print("You win.")
 
     #TODO-2: - Import the stages from hangman_art.py and make this error go away.
-    from hangman_art import stages
+    from artlogo import stages
     print(stages[lives])
