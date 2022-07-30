@@ -1,14 +1,22 @@
-sala = []
-aluno = {}
+#72
+7
+cont = ('zero','um', 'dois', 'tres', 'quatro',
+        'cinco')
 
-for i in range (1, 4):
-    aluno['name'] = str(input('Nome: '))
-    aluno['nota'] = int(input('Nota: '))
+# input a number between 0 and 5
 
-    if aluno['nota'] > 7:
-        aluno['situacao']='aprovado'
-    else:
-        aluno['situacao']='reprovado'
-    sala.append(aluno.copy())
+while True:
+    num_seleted = int(input(print("input a number between 0 and 5")))
+    if 0 <= num_seleted <= 5:
+        print("you selected a validad number")
+        break
+    else: 
+        print("you selected a bad number, choise again")
 
-print(sala)
+
+# validated then
+print(cont[num_seleted])
+
+
+# show that selected number write
+
