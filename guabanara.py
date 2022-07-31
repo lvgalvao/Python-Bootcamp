@@ -58,12 +58,35 @@
 # crie um programa que tenha uma tupla com várias palavras, depois disso, voce deve mostra
 # para cada palavra, quais sao as suas 'vogais'
 
-carrinho = ('bola',
-            'plabystataion',
-            'viatrbola')
+# carrinho = ('bola',
+#             'plabystataion',
+#             'viatrbola')
 
-for p in carrinho:
-    print(f'\nNa palavra {p.upper()} temos ', end='')
-    for letra in p:
-        if letra.lower() in 'aeiou':
-            print(letra, end='')
+# for p in carrinho:
+#     print(f'\nNa palavra {p.upper()} temos ', end='')
+#     for letra in p:
+#         if letra.lower() in 'aeiou':
+#             print(letra, end='')
+# start list exercices
+
+#read 5 values from a input and save then in a list
+
+#max and min values and ther index
+
+values = []
+for len in range(0,5):
+    value = int(input(f'digite um valor para a posição {len}:'))
+    values.append(value)
+    print(value)
+    print(values)
+print(values)
+
+print(f'{max(values)} na posicao ', end='')
+for i, v in enumerate(values):
+    if v == max(values):
+        print(f'{i}... ')
+
+print(f'o valor minimo foi {min(values)} na posicao ', end='')
+for i, v in enumerate(values):
+    if v == min(values):
+        print(f'{i}...', end='')
