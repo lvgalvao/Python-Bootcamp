@@ -58,12 +58,100 @@
 # crie um programa que tenha uma tupla com várias palavras, depois disso, voce deve mostra
 # para cada palavra, quais sao as suas 'vogais'
 
-carrinho = ('bola',
-            'plabystataion',
-            'viatrbola')
+# carrinho = ('bola',
+#             'plabystataion',
+#             'viatrbola')
 
-for p in carrinho:
-    print(f'\nNa palavra {p.upper()} temos ', end='')
-    for letra in p:
-        if letra.lower() in 'aeiou':
-            print(letra, end='')
+# for p in carrinho:
+#     print(f'\nNa palavra {p.upper()} temos ', end='')
+#     for letra in p:
+#         if letra.lower() in 'aeiou':
+#             print(letra, end='')
+# start list exercices
+
+#read 5 values from a input and save then in a list
+
+#max and min values and ther index
+
+# values = []
+# for len in range(0,5):
+#     value = int(input(f'digite um valor para a posição {len}:'))
+#     values.append(value)
+#     print(value)
+#     print(values)
+# print(values)
+
+# print(f'{max(values)} na posicao ', end='')
+# for i, v in enumerate(values):
+#     if v == max(values):
+#         print(f'{i}... ')
+
+# print(f'o valor minimo foi {min(values)} na posicao ', end='')
+# for i, v in enumerate(values):
+#     if v == min(values):
+#         print(f'{i}...', end='')
+
+#usuario digite n numeros
+#caso o numero seja repetido nao adicionar e informar o usuário para digitar um novo numero
+#exibir a lista em ordem crescente
+
+# list = []
+# append_list = True
+# #usuario digite n numeros
+# while append_list is True:
+#     global num_candidato
+#     num_candidato = input('digite um valor: ')
+#     if num_candidato in list:
+#         print('valor duplicado, não foi adicionado')
+#     else:
+#         print('valor adicionar com sucesso')
+#         list.append(num_candidato)
+#     keep = input(print('Quer continuar? [S/N]'))
+#     if keep == 'N':
+#         append_list = False
+# #usuario digite n numeros
+
+# print(list.sort())
+
+# numeros = list()
+# while True:
+#     n = int(input('Digite um valor: '))
+#     if n not in numeros:
+#         numeros.append(n)
+#         print('numero adicionado com sucesso')
+#     else:
+#         print('numero duplicado, nao adicionado')
+#     r = str(input('Quer continuar? [S/N]'))
+#     if r in 'Nn':
+#         break
+
+# print('-='* 30)
+# print(f'voce digitou os valores {numeros}')
+# numeros.sort()
+# print(f'voce digitou os valores {numeros}')
+
+#crie um programa onde o usuario possa
+
+#make a function where the users type 5 numbers e put this numbers in a list ordered, dont use sort()
+
+# sort_list = list()
+# for c in range(0,5):
+#     number = int(input('digite um numero :'))
+#     if c == 0:
+#         sort_list.append(number)
+#     elif number >= sort_list[-1]:
+#         sort_list.append(number)
+#     else:
+#         pos = 0
+#         while pos < len(sort_list):
+#             if number <= sort_list[pos]:
+#                 sort_list.insert(pos,number)
+#                 break
+#             pos += 1
+
+# print(sort_list)
+
+pessoas = {'nome': 'gustavo', 'sexo': 'm'}
+print(pessoas.items())
+
+brasi
