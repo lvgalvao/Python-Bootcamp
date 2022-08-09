@@ -1,33 +1,30 @@
 #inicio do dia 16
 
-# import another_module
+from menu import MENU, resources
+from resources import is_resources_sufficient, make_refil
+from make_coffe import make_coffee
 
-# print(another_module.anothervariable)
+profit = 0
+currenty_resources = dict()
+currenty_resources = resources
+looping = True
 
-# from turtle import Turtle, Screen
-
-# timmy = Turtle()
-# print(timmy)
-# timmy.shape("turtle")
-# timmy.pencolor("blue")
-# timmy.fillcolor("coral")
-# timmy.forward(100)
-
-# my_screen = Screen()
-# print(my_screen.canvheight)
-# my_screen.exitonclick()
-
-# from prettytable import PrettyTable
-
-# table = PrettyTable()
-# print(table)
-
-# table.field_names = ["Pokemon Name", "Type"]
-# table.add_row(["Pikachu", "Electric"])
-# table.add_row(["Squirtle", "Water"])
-# table.add_row(["Charmander", "Fire"])
-# table.align = "r"
-
-# print(table.get_string(start=1, end=2))
-
-# table.
+while looping:
+# choose = input("What would you like? (espresso/latte/cappuccino): ")
+    choice = input("What would you like? (espresso/latte/cappuccino): ")
+    if choice == "report":
+        print("The resources are:")
+        print(f"You have {currenty_resources['water']}ml of water")
+        print(f"You have {currenty_resources['milk']}ml of milk")
+        print(f"You have {currenty_resources['coffee']}ml of coffee")
+        print(f"You have {profit} $ profit")
+    elif choice == "stop":
+        looping = False
+    elif choice == "refil":
+        make_refil(currenty_resources, profit)
+    else:
+        drink = MENU[choice]
+        if is_resources_sufficient(drink["ingredients"]):
+            payment = process_coins()
+            if is_transaction_successful(payment, drink["cost"]):
+                make_coffee(choice, drink["ingredients"])
