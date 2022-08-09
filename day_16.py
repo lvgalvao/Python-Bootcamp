@@ -3,6 +3,7 @@
 from menu import MENU, resources
 from resources import is_resources_sufficient, make_refil
 from make_coffe import make_coffee
+from payment_coffee import is_transaction_successful, process_coins
 
 profit = 0
 currenty_resources = dict()
