@@ -1,31 +1,26 @@
 #inicio do dia 16
 
-from menu import MENU, resources
-from resources import is_resources_sufficient, make_refil
-from make_coffe import make_coffee
-from payment_coffee import is_transaction_successful, process_coins
+from menu import Menu, MenuItem
+from coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
 
-profit = 0
-currenty_resources = dict()
-currenty_resources = resources
-looping = True
+money_machine = MoneyMachine()
+coffee_maker = CoffeeMaker()
+menu = Menu()
 
-while looping:
-# choose = input("What would you like? (espresso/latte/cappuccino): ")
-    choice = input("What would you like? (espresso/latte/cappuccino): ")
+
+is_on = True
+
+while is_on:
+    options = menu.get_items()
+    choice = input(f"What would you like? ({options})")
+    if choice == "off":
+        is_on = False
     if choice == "report":
-        print("The resources are:")
-        print(f"You have {currenty_resources['water']}ml of water")
-        print(f"You have {currenty_resources['milk']}ml of milk")
-        print(f"You have {currenty_resources['coffee']}ml of coffee")
-        print(f"You have {profit} $ profit")
-    elif choice == "stop":
-        looping = False
-    elif choice == "refil":
-        make_refil(currenty_resources, profit)
+        coffee_maker.report()
+        money_machine.report()
     else:
-        drink = MENU[choice]
-        if is_resources_sufficient(drink["ingredients"]):
-            payment = process_coins()
-            if is_transaction_successful(payment, drink["cost"]):
-                make_coffee(choice, drink["ingredients"])
+        drink = menu.find_drink(choice)
+        if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
+            coffee_maker.make_coffee(drink)
+
