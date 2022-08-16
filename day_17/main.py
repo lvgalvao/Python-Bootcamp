@@ -13,5 +13,4 @@ for question in question_data:
 
 quiz = QuizBrain(question_bank)
 
-# while quiz.still_has_questions():
-#     quiz.next_question()
+# tue
