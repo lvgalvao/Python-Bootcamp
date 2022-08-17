@@ -13,4 +13,3 @@ for question in question_data:
 
 quiz = QuizBrain(question_bank)
 
-# tue
