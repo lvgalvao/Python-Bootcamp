@@ -1,32 +1,17 @@
-# import json
+import json
+import requests
 
-# carros_json = '{"marca":"honda", "modelo":"HRV", "Cor":"prata"}'
+url = requests.get("https://intellifood-au-data.s3.us-west-2.amazonaws.com/consolidated-data/Grocery/3/2022/08/17/12/008698e4-e62b-4d08-b289-ea8350aa8287.json")
+print(url.status_code)
+print(url.headers["content-type"])
+print(url.encoding)
+print(type(url))
 
-# carros = json.loads(carros_json)
-brasil = []
-print(type(brasil))
+dic = url.json()
 
-# carros.append({"uf":"rio de janeiro"})
-# print(brasil)
-# main_feeds = {"marca":"honda", "areas":"HRV", "Cor":"prata"}
-
-# for index, elem in enumerate(main_feeds):
-#     print(index,":",elem)
-#     temp_list = index,":",elem
-# li = {}
-# print_user_areas(li)
-
-# while True:
-#     n = (input('\nGive number: '))
-
-
-#     if n == "":
-#         break
-#     else:
-#         if n.isdigit():
-#             n=int(n)
-#             print('\n')
-#             print (main_feeds[n])
-#             temp = main_feeds[n]
-#             for item in user:
-#             user['areas'].append[temp]
+print(dic)
+# x =  '{ "name":"John", "age":30, "city":"New York"}'
+# print(type(x))
+# y = json.loads(x)
+# print(type(y))
+# print(y["age"])
