@@ -1,19 +1,32 @@
-# #day18
+# import json
 
-# from turtle import Turtle, Screen
+# carros_json = '{"marca":"honda", "modelo":"HRV", "Cor":"prata"}'
 
-# timmy_the_turtle = Turtle()
+# carros = json.loads(carros_json)
+brasil = []
+print(type(brasil))
 
-# screen = Screen()
-# screen.exitonclick()
+# carros.append({"uf":"rio de janeiro"})
+# print(brasil)
+# main_feeds = {"marca":"honda", "areas":"HRV", "Cor":"prata"}
+
+# for index, elem in enumerate(main_feeds):
+#     print(index,":",elem)
+#     temp_list = index,":",elem
+# li = {}
+# print_user_areas(li)
+
+# while True:
+#     n = (input('\nGive number: '))
 
 
-# Python program to demonstrate the use of floor() method
-  
-# This will import math module
-import math   
-  
-# prints the ceil using floor() method
-print(f'math.floor(-23.11) : , {math.floor(-23.11)}')
-# print "math.floor(300.16) : ", math.floor(300.16)
-# print "math.floor(300.72) : ", math.floor(300.72)
+#     if n == "":
+#         break
+#     else:
+#         if n.isdigit():
+#             n=int(n)
+#             print('\n')
+#             print (main_feeds[n])
+#             temp = main_feeds[n]
+#             for item in user:
+#             user['areas'].append[temp]
