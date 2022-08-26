@@ -1,11 +1,8 @@
-from turtle import *
-shape('turtle')
+from turtle import Turtle
+
+turtle_square = Turtle()
+
+turtle_square
+
 color('red', 'yellow')
 begin_fill()
-home()
-speed(1)
-goto(100, 100)
-circle(50)
-stamp()
-circle(120, 180)  # draw a semicircle
-fd(500)
