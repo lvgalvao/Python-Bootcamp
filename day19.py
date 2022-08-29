@@ -1,9 +1,9 @@
 import re
-with open('tabacaria.txt') as f:
-    text = f.read()
+from itertools import permutations
 
+cel = re.compile(r'[7-9][0-9]{7}')
 
-print(text)
-# print(re.findall(r'.olha', text))
-
-print(type(re.findall(r'[O|o]lha', text)))
+for tel in permutations(range(1,10),8):
+    _tel = ''.join(str(x) for x in tel)
+    if cel.search(_tel):
+        print(_tel)
