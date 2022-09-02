@@ -10,3 +10,4 @@ for tel in permutations(range(1,10),8):
         print(_tel)
 
         just a bunch of codedwjdwjdw
+        lol up
