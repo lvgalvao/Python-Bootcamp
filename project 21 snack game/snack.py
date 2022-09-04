@@ -9,8 +9,6 @@ DOWN = 270
 RIGHT = 0
 
 body = []
-snack_size = 3
-game_is_starting = True
 
 class Snake:
 

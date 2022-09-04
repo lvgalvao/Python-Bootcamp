@@ -1,11 +1,10 @@
-# task 04 - create snake food
-# task 05 - detect collision with food
 # task 06 - create a scoreboard
 # task 07 - detect collision with wall
 # task 08 - detect collision with tail
 
-from turtle import Turtle, Screen
+from turtle import Screen
 from snack import Snake
+from food import Food
 import time
 
 # task 01 - setup the screen
@@ -17,6 +16,7 @@ screen.title(titlestring="Welcome to the Snack Game")
 screen.tracer(0)
 
 snake = Snake()
+food = Food()
 
 screen.listen()
 screen.onkey(snake.up, 'Up')
@@ -30,6 +30,11 @@ while game_is_on:
     screen.update()
     time.sleep(0.1)
     snake.move()
+
+# task 05 - detect collision with food
+    if snake.head.distance(food) < 15:
+        food.refresh()
+
 
 
 
