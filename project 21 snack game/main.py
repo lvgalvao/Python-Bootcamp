@@ -1,10 +1,7 @@
-# task 06 - create a scoreboard
-# task 07 - detect collision with wall
-# task 08 - detect collision with tail
-
 from turtle import Screen
 from snack import Snake
 from food import Food
+from scorecard import Scorecard
 import time
 
 # task 01 - setup the screen
@@ -17,6 +14,7 @@ screen.tracer(0)
 
 snake = Snake()
 food = Food()
+scorecard = Scorecard()
 
 screen.listen()
 screen.onkey(snake.up, 'Up')
@@ -32,8 +30,24 @@ while game_is_on:
     snake.move()
 
 # task 05 - detect collision with food
+
     if snake.head.distance(food) < 15:
         food.refresh()
+        snake.extend()
+        scorecard.increase_score()
+
+# task 07 - detect collision with wall
+
+    if snake.head.xcor() > 350 or snake.head.xcor() < -350 or snake.head.ycor() > 350 or snake.head.ycor() < -350:
+        game_is_on = False
+        scorecard.game_over()
+
+# task 09 - detect collision with tail
+
+    for segment in snake.body[1:]:
+        if snake.head.distance(segment) < 10:
+            game_is_on = False
+            scorecard.game_over()
 
 
 
