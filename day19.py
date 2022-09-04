@@ -22,6 +22,7 @@ y_position = [-70, -40, -10, 20, 50, 80, 110]
 turtles = []
 is_race_on = False
 
+## task 03 - the user need to choose a color
 user_bet = screen.textinput(title="Bet",prompt= "which turtle will win the race? Enter a color: ")
 
 for n in range(len(colors)):
@@ -31,6 +32,26 @@ for n in range(len(colors)):
     turtle.color(colors[n])
     turtle.goto(-300,y_position[n])
     turtles.append(turtle)
+
+
+if user_bet:
+    is_race_on = True
+
+## task 04 - all turtles need to walk a randon distance
+
+while is_race_on:
+    
+    for n in turtles:
+        if n.xcor() > 230:
+            is_race_on = False
+            if user_bet == n.color():
+                print(f"you won! the {n.color()} is the winner")
+            else:
+                print(f"you lose! the {n.color()} is the winner")
+        n.forward(random.randint(0,10))
+
+
+
 
 screen.exitonclick()
 
