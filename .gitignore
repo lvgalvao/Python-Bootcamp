@@ -1,6 +1,6 @@
  Byte-compiled / optimized / DLL files
 __pycache__/
-echo .DS_Store >> .gitignore
+*.DS_Store
 *.py[cod]
 *$py.class
 
