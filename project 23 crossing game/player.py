@@ -19,3 +19,5 @@ class Player(Turtle):
 
     def refresh(self):
         self.goto(STARTING_POSITION)
+
+        
