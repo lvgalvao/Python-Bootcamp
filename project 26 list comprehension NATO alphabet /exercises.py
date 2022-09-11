@@ -66,3 +66,8 @@ list2 = Read_and_strip.read(url="/Users/lucianogalvao/Code/100DaysofCode/project
 print(list1)
 print(list2)
 
+# task 2 , create a new list when the numbers are commun in both list
+
+commun_numbers = [n for n in list1 if n in list2 ]
+commun_numbers
+print(commun_numbers)

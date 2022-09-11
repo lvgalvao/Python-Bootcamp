@@ -9,4 +9,5 @@ class Read_and_strip():
             for item in list_file:
                 new_item_striped = int(item.strip())
                 new_list_file_striped.append(new_item_striped)
+        new_list_file_striped.sort()
         return new_list_file_striped
