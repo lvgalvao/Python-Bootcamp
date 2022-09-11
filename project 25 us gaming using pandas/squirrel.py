@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv("project 25 brasil game using pandas/2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+CSV = "project 25 us gaming using pandas/Input/2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv"
+df = pd.read_csv(CSV)
 
 # print(df)
 

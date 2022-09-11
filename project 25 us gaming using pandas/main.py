@@ -11,8 +11,8 @@
 
 # how to work with csv using pandas
 import pandas as pd
-
-data = pd.read_csv("project 25 brasil game using pandas/weather_data.csv")
+CSV = "/Users/lucianogalvao/Code/100DaysofCode/project 25 us gaming using pandas/Input/weather_data.csv"
+data = pd.read_csv(CSV)
 # print(type(data)) it's a dataframe
 # print(type(data["temp"])) it's a dataseries
 
@@ -66,7 +66,9 @@ data_dict = {
 df = pd.DataFrame(data_dict)
 print(df)
 
-df.to_csv("new_data.csv")
+df.to_csv("/Users/lucianogalvao/Code/100DaysofCode/project 25 us gaming using pandas/Output/new_data.csv")
+
+
 
 
 

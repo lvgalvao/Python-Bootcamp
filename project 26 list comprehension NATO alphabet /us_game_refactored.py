@@ -1,19 +1,21 @@
-import turtle
+from turtle import Turtle, Screen
 import pandas as pd
 
 FONT = ("Courier", 14, "normal")
 IMAGE = "project 25 us gaming using pandas/Input/blank_states_img.gif"
 CSV = "project 25 us gaming using pandas/Input/50_states.csv"
 
-screen = turtle.Screen()
+screen = Screen()
 screen.title("U.S States Game")
 screen.addshape(IMAGE)
 
+turtle = Turtle()
 turtle.shape(IMAGE)
 
 df = pd.read_csv(CSV)
+all_states = df["state"].to_list()
 
-class name_on_map(turtle.Turtle):
+class name_on_map(Turtle):
 
     def __init__(self, contry, x, y) -> None:
         super().__init__()
@@ -30,8 +32,9 @@ guessed_states = []
 while len(guessed_states) < 50:
     guess = screen.textinput(title=f"{len(guessed_states)}/50 states correct", prompt="What's another state's name").title()
     if guess == "Exit":
-        new_data = pd.DataFrame(guessed_states)
-        new_data.to_csv("project 25 us gaming using pandas/Output/save_country.csv")
+        missing_states = [n for n in all_states if n not in guessed_states]
+        new_data_missing_states = pd.DataFrame(missing_states)
+        new_data_missing_states.to_csv("project 26 list comprehension NATO alphabet /Output/save_country_missing.csv")
         break
     if guess in df.values:
         print(f"{guess} it's a state")
@@ -40,8 +43,6 @@ while len(guessed_states) < 50:
         name_on_map(guess,country_x, country_y)
         score += 1
         guessed_states.append(guess)
-        if score > high_score:
-            high_score = score
     else:
         print(f"{guess} it's not")
 
