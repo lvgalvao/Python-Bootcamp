@@ -39,22 +39,30 @@ odd_numbers = [n for n in NUMBERS if n%2 == 0]
 # You are going to create a list called result which contains the numbers that are common in both file
 
 # task 1 , create new list using the numbers in these files
+# task 1.1, create a class how read a txt file and strip the itens
+
+from read_and_strip import Read_and_strip
+
 # task 2 , create a new list when the numbers are commun in both list
 
-with open("/Users/lucianogalvao/Code/100DaysofCode/project 26 list comprehension NATO alphabet /file.txt") as file1:
-    list_file1 = file1.readlines()
-    new_list_file1_striped = []
-    for item in list_file1:
-        new_item_striped = item.strip()
-        new_list_file1_striped.append(new_item_striped)
+# with open("/Users/lucianogalvao/Code/100DaysofCode/project 26 list comprehension NATO alphabet /file.txt") as file1:
+#     list_file1 = file1.readlines()
+#     new_list_file1_striped = []
+#     for item in list_file1:
+#         new_item_striped = item.strip()
+#         new_list_file1_striped.append(new_item_striped)
 
-with open("/Users/lucianogalvao/Code/100DaysofCode/project 26 list comprehension NATO alphabet /file2.txt") as file2:
-    list_file2 = file2.readlines()
-    new_list_file2_striped = []
-    for item in list_file2:
-        new_item_striped_2 = item.strip()
-        new_list_file2_striped.append(new_item_striped_2)
 
-print(new_list_file1_striped)
-print(new_list_file2_striped)
+# with open("/Users/lucianogalvao/Code/100DaysofCode/project 26 list comprehension NATO alphabet /file2.txt") as file2:
+#     list_file2 = file2.readlines()
+#     new_list_file2_striped = []
+#     for item in list_file2:
+#         new_item_striped_2 = item.strip()
+#         new_list_file2_striped.append(new_item_striped_2)
+
+list1 = Read_and_strip.read(url="/Users/lucianogalvao/Code/100DaysofCode/project 26 list comprehension NATO alphabet /file.txt")
+list2 = Read_and_strip.read(url="/Users/lucianogalvao/Code/100DaysofCode/project 26 list comprehension NATO alphabet /file2.txt")
+
+print(list1)
+print(list2)
 
