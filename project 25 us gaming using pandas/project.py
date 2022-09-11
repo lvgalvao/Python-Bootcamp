@@ -2,16 +2,16 @@ import turtle
 import pandas as pd
 
 FONT = ("Courier", 14, "normal")
-
+IMAGE = "project 25 us gaming using pandas/Input/blank_states_img.gif"
+CSV = "project 25 us gaming using pandas/Input/50_states.csv"
 
 screen = turtle.Screen()
 screen.title("U.S States Game")
-image = "project 25 us gaming using pandas/blank_states_img.gif"
-screen.addshape(image)
+screen.addshape(IMAGE)
 
-turtle.shape(image)
+turtle.shape(IMAGE)
 
-df = pd.read_csv("project 25 us gaming using pandas/50_states.csv")
+df = pd.read_csv(CSV)
 
 class name_on_map(turtle.Turtle):
 
@@ -31,7 +31,7 @@ while len(guessed_states) < 50:
     guess = screen.textinput(title=f"{len(guessed_states)}/50 states correct", prompt="What's another state's name").title()
     if guess == "Exit":
         new_data = pd.DataFrame(guessed_states)
-        new_data.to_csv("save_country.csv")
+        new_data.to_csv("project 25 us gaming using pandas/Output/save_country.csv")
         break
     if guess in df.values:
         print(f"{guess} it's a state")

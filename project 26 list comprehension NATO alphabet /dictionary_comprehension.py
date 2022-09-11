@@ -18,5 +18,6 @@ students_scores_pass_2 = {student:score for (student, score) in studentes_scores
 print(studentes_scores_pass)
 print(students_scores_pass_2)
 
+#jump to json the students who pass
 with open('personal.json', 'w') as json_file:
     json.dump(students_scores_pass_2, json_file, indent=4)

@@ -2,8 +2,8 @@ from turtle import Turtle, Screen
 import pandas as pd
 
 FONT = ("Courier", 14, "normal")
-IMAGE = "/Users/lucianogalvao/Code/100DaysofCode/project 25 us gaming using pandas/blank_states_img.gif"
-CSV = "/Users/lucianogalvao/Code/100DaysofCode/project 25 us gaming using pandas/50_states.csv"
+IMAGE = "project 25 us gaming using pandas/Input/blank_states_img.gif"
+CSV = "project 25 us gaming using pandas/Input/50_states.csv"
 
 screen = Screen()
 screen.title("U.S States Game")
@@ -34,7 +34,7 @@ while len(guessed_states) < 50:
     if guess == "Exit":
         missing_states = [n for n in all_states if n not in guessed_states]
         new_data_missing_states = pd.DataFrame(missing_states)
-        new_data_missing_states.to_csv("save_country_missing.csv")
+        new_data_missing_states.to_csv("project 26 list comprehension NATO alphabet /Output/save_country_missing.csv")
         break
     if guess in df.values:
         print(f"{guess} it's a state")
