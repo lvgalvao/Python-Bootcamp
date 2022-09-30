@@ -14,6 +14,7 @@ logo_img = PhotoImage(file="day-29/src/logo.png")
 canvas.create_image(100, 100, image=logo_img)
 canvas.pack()
 root.mainloop() ### Mantein the application 
+just it
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
