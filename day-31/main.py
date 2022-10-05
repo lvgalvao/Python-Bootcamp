@@ -1,48 +1,71 @@
-# from tkinter import *
-
-# #-----CONST----#
-
-# BACKGROUND_COLOR = "#B1DDC6"
-
-
-# #-----FUNCTION----#
-
-# #-----UI----#
-
-# #-----WINDOW----#
-# window = Tk()
-# window.title("Flashy")
-# window.config(padx=900, pady=626, background=BACKGROUND_COLOR)
-
-# #-----CARDFRONT-----#
-# canvas = Canvas(height=350, width=800)
-# logo_img = PhotoImage(file="day-31/images/card_front.png")
-
-# Label(window, image=logo_img).place(x = 60,y = 150)
-
-
-
-# window.mainloop()
-
-# !/usr/bin/python3
 from tkinter import *
-canvas = Canvas(height=350, width=800)
-top = Tk()
-L1 = PhotoImage(canvas, file="day-31/images/card_front.png")
-L1.pack()
-E1 = Entry(top, bd = 5)
-E1.place(x = 60,y = 10)
-L2 = Label(top,text = "Maths")
-L2.place(x = 10,y = 50)
-E2 = Entry(top,bd = 5)
-E2.place(x = 60,y = 50)
+import pandas
+import random
 
-L3 = Label(top,text = "Total")
-L3.place(x = 10,y = 150)
-E3 = Entry(top,bd = 5)
-E3.place(x = 60,y = 150)
+BACKGROUND_COLOR = "#B1DDC6"
+current_card = {}
+to_learn = {}
 
-B = Button(top, text = "Add")
-B.place(x = 100, y = 100)
-top.geometry("250x250+10+10")
-top.mainloop()
+try:
+    data = pandas.read_csv("day-31/data/words_to_learn.csv")
+except FileNotFoundError:
+    original_data = pandas.read_csv("day-31/data/french_words.csv")
+    print(original_data)
+    to_learn = original_data.to_dict(orient="records")
+else:
+    to_learn = data.to_dict(orient="records")
+
+
+def next_card():
+    global current_card, flip_timer
+    window.after_cancel(flip_timer)
+    current_card = random.choice(to_learn)
+    canvas.itemconfig(card_title, text="French", fill="black")
+    canvas.itemconfig(card_word, text=current_card["French"], fill="black")
+    canvas.itemconfig(card_background, image=card_front_img)
+    flip_timer = window.after(3000, func=flip_card)
+
+
+def flip_card():
+    canvas.itemconfig(card_title, text="English", fill="white")
+    canvas.itemconfig(card_word, text=current_card["English"], fill="white")
+    canvas.itemconfig(card_background, image=card_back_img)
+
+
+def is_known():
+    to_learn.remove(current_card)
+    print(len(to_learn))
+    data = pandas.DataFrame(to_learn)
+    data.to_csv("day-31/data/words_to_learn.csv", index=False)
+    next_card()
+
+
+window = Tk()
+window.title("Flashy")
+window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
+
+flip_timer = window.after(3000, func=flip_card)
+
+canvas = Canvas(width=800, height=526)
+card_front_img = PhotoImage(file="day-31/images/card_front.png")
+card_back_img = PhotoImage(file="day-31/images/card_back.png")
+card_background = canvas.create_image(400, 263, image=card_front_img)
+card_title = canvas.create_text(400, 150, text="", font=("Ariel", 40, "italic"))
+card_word = canvas.create_text(400, 263, text="", font=("Ariel", 60, "bold"))
+canvas.config(bg=BACKGROUND_COLOR, highlightthickness=0)
+canvas.grid(row=0, column=0, columnspan=2)
+
+cross_image = PhotoImage(file="day-31/images/wrong.png")
+unknown_button = Button(image=cross_image, highlightthickness=0, command=next_card)
+unknown_button.grid(row=1, column=0)
+
+check_image = PhotoImage(file="day-31/images/right.png")
+known_button = Button(image=check_image, highlightthickness=0, command=is_known)
+known_button.grid(row=1, column=1)
+
+next_card()
+
+window.mainloop()
+
+
+
