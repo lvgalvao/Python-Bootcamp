@@ -74,7 +74,6 @@ def search_password():
             messagebox.showinfo(title="Oops", message="You don't have any password saved")
         else:
             try:
-                website = website_entry.get()
                 email_get = data[website]["email"]
                 password_get = data[website]["password"]
             except KeyError:
