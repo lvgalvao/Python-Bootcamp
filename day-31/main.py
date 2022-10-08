@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk, Canvas, PhotoImage, Button
 import pandas
 import random
 
