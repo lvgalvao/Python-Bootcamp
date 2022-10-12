@@ -3,6 +3,8 @@ from data import question_data
 from quiz_brain import QuizBrain
 
 #just a updagte
+#just ohter
+#other
 
 question_bank = []
 for question in question_data:
