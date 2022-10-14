@@ -23,6 +23,33 @@ def generate_password():
     password_entry.insert(0, password)
     pyperclip.copy(password)
 
+def generate_password():
+#Password Generator Project
+    password_entry.delete(0, END)
+    password = ""
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+    nr_letters = random.randint(8, 10)
+    nr_symbols = random.randint(2, 4)
+    nr_numbers = random.randint(2, 4)
+
+    password_list = []
+
+    password_letter = [random.choice(letters) for _ in range(nr_letters)]
+    password_numbers = [random.choice(numbers) for _ in range(nr_numbers)]
+    password_symbols = [random.choice(symbols) for _ in range(nr_symbols)]
+
+    password_list = password_letter + password_numbers + password_symbols
+    random.shuffle(password_list)
+
+    password = "".join(password_list)
+
+    password_entry.insert(0, password)
+    pyperclip.copy(password)
+
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
 
@@ -48,6 +75,23 @@ def save():
                 website_entry.delete(0, END)
                 password_entry.delete(0, END)
 
+
+def save():
+    password = password_entry.get()
+    website = website_entry.get()
+    email = email_entry.get()
+
+    if password == "" and website == "":
+        messagebox.showinfo(message='please insert some values')
+    else:
+        is_ok = messagebox.askokcancel(title='website', message=f'These are the details entered: \nEmail: {email}'
+                                                        f'\nPassword: {password} \nIs it ok to save?')
+
+        if is_ok:
+            with open('day-29/src/readme.txt', 'a') as f:
+                f.write(f'website: {website} email: {email} password {password}\n')
+                website_entry.delete(0, END)
+                password_entry.delete(0, END)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -75,6 +119,7 @@ website_entry.focus()
 email_entry = Entry(width=35)
 email_entry.grid(row=2, column=1, columnspan=2)
 email_entry.insert(0, "lvgalvaofilho@gmail.com")
+
 password_entry = Entry(width=21)
 password_entry.grid(row=3, column=1)
 
