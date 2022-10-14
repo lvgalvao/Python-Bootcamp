@@ -23,33 +23,6 @@ def generate_password():
     password_entry.insert(0, password)
     pyperclip.copy(password)
 
-def generate_password():
-#Password Generator Project
-    password_entry.delete(0, END)
-    password = ""
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
-
-    nr_letters = random.randint(8, 10)
-    nr_symbols = random.randint(2, 4)
-    nr_numbers = random.randint(2, 4)
-
-    password_list = []
-
-    password_letter = [random.choice(letters) for _ in range(nr_letters)]
-    password_numbers = [random.choice(numbers) for _ in range(nr_numbers)]
-    password_symbols = [random.choice(symbols) for _ in range(nr_symbols)]
-
-    password_list = password_letter + password_numbers + password_symbols
-    random.shuffle(password_list)
-
-    password = "".join(password_list)
-
-    password_entry.insert(0, password)
-    pyperclip.copy(password)
-
-
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
 
@@ -57,9 +30,9 @@ def save():
     email = email_entry.get()
     password = password_entry.get()
     new_data = {
-        website: { 
-        "email": email,
-        "password": password,
+        website: {
+            "email": email,
+            "password": password,
         }
     }
 
@@ -69,29 +42,48 @@ def save():
         is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} "
                                                       f"\nPassword: {password} \nIs it ok to save?")
         if is_ok:
-            with open("day-29/src/data.json", "w") as data_file:
-                # json.dump(new_data, data_file, indent=4)
-                json.load(data_file,)
+            try:
+                with open("day-30/src/data.json", "r") as data_file:
+                    #read
+                    data = json.load(data_file)
+            except FileNotFoundError:
+                with open("day-30/src/data.json", "w") as data_file:
+                    json.dump(new_data, data_file, indent=4)
+            else:
+                #update
+                data.update(new_data)
+                with open("day-30/src/data.json", "w") as data_file:
+                    json.dump(data, data_file, indent=4)
+            finally:        
                 website_entry.delete(0, END)
                 password_entry.delete(0, END)
 
+# ---------------------------- SEARCH PASSWORD ------------------------------- #
 
-def save():
-    password = password_entry.get()
+def search_password():
     website = website_entry.get()
-    email = email_entry.get()
 
-    if password == "" and website == "":
-        messagebox.showinfo(message='please insert some values')
+    if len(website) == 0:
+        messagebox.showinfo(title="Oops", message="Please make sure you haven't left website field empty.")
     else:
-        is_ok = messagebox.askokcancel(title='website', message=f'These are the details entered: \nEmail: {email}'
-                                                        f'\nPassword: {password} \nIs it ok to save?')
-
-        if is_ok:
-            with open('day-29/src/readme.txt', 'a') as f:
-                f.write(f'website: {website} email: {email} password {password}\n')
-                website_entry.delete(0, END)
-                password_entry.delete(0, END)
+        try:
+            with open("day-30/src/data.json", "r") as data_file:
+            #read
+                data = json.load(data_file)
+        except FileNotFoundError:
+            messagebox.showinfo(title="Oops", message="You don't have any password saved")
+        else:
+            try:
+                email_get = data[website]["email"]
+                password_get = data[website]["password"]
+            except KeyError:
+                messagebox.showinfo(title="Oops", message=f"You don't save a password {website}")
+            else:
+                messagebox.askokcancel(title=website, message=f"These are the details entered: \nWebsite: {website} "
+                                                        f"\nEmail: {email_get} Password: {password_get}")
+            
+        finally:        
+            website_entry.delete(0, END)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -100,7 +92,7 @@ window.title("Password Manager")
 window.config(padx=50, pady=50)
 
 canvas = Canvas(height=200, width=200)
-logo_img = PhotoImage(file="day-29/src/logo.png")
+logo_img = PhotoImage(file="day-30/img/logo.png")
 canvas.create_image(100, 100, image=logo_img)
 canvas.grid(row=0, column=1)
 
@@ -113,19 +105,20 @@ password_label = Label(text="Password:")
 password_label.grid(row=3, column=0)
 
 #Entries
-website_entry = Entry(width=35)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry = Entry(width=21)
+website_entry.grid(row=1, column=1)
 website_entry.focus()
 email_entry = Entry(width=35)
 email_entry.grid(row=2, column=1, columnspan=2)
-email_entry.insert(0, "lvgalvaofilho@gmail.com")
-
+email_entry.insert(0, "angela@gmail.com")
 password_entry = Entry(width=21)
 password_entry.grid(row=3, column=1)
 
 # Buttons
 generate_password_button = Button(text="Generate Password", command=generate_password)
 generate_password_button.grid(row=3, column=2)
+generate_password_button = Button(text="Search Password", command=search_password)
+generate_password_button.grid(row=1, column=2)
 add_button = Button(text="Add", width=36, command=save)
 add_button.grid(row=4, column=1, columnspan=2)
 

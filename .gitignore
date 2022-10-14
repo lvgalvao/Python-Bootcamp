@@ -3,7 +3,8 @@ __pycache__/
 *.DS_Store
 *.py[cod]
 *$py.class
-
+.vscode
+config.py
 # C extensions
 *.so
 
