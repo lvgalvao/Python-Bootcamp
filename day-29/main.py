@@ -31,18 +31,18 @@ def generate_password():
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-    nr_letters = random.randint(8, 10)
-    nr_symbols = random.randint(2, 4)
-    nr_numbers = random.randint(2, 4)
+    nr_letters = randint(8, 10)
+    nr_symbols = randint(2, 4)
+    nr_numbers = randint(2, 4)
 
     password_list = []
 
-    password_letter = [random.choice(letters) for _ in range(nr_letters)]
-    password_numbers = [random.choice(numbers) for _ in range(nr_numbers)]
-    password_symbols = [random.choice(symbols) for _ in range(nr_symbols)]
+    password_letter = [choice(letters) for _ in range(nr_letters)]
+    password_numbers = [choice(numbers) for _ in range(nr_numbers)]
+    password_symbols = [choice(symbols) for _ in range(nr_symbols)]
 
     password_list = password_letter + password_numbers + password_symbols
-    random.shuffle(password_list)
+    shuffle(password_list)
 
     password = "".join(password_list)
 
