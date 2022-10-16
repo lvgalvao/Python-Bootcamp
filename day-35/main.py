@@ -1,5 +1,5 @@
 import requests
-from config import API_KEY_CONFIG, LATITUDE, LONGITUDE, PASSWORD, EMAIL_FROM, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
+from config import API_KEY_CONFIG, LATITUDE, LONGITUDE, PASSWORD, EMAIL_FROM, EMAIL_TO, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 import smtplib
 import os
 from twilio.rest import Client
@@ -24,18 +24,18 @@ response = requests.get(URI, params=parametros)
 text = response.json()
 weather_slice = text['hourly'][:12]
 
-will_rain = True
+will_rain = False
 
-# for hour_data in weather_slice:
-#    condition_code = hour_data['weather'][0]['id']
-#    if int(condition_code) < 700:
-#         print(condition_code)
-#         will_rain = True
+for hour_data in weather_slice:
+   condition_code = hour_data['weather'][0]['id']
+   if int(condition_code) < 700:
+        print(condition_code)
+        will_rain = True
 
 if will_rain:
     message = client.messages \
                     .create(
-                        body="Olá amor, vamos mudar para a europa",
-                        from_='whatsapp:+5521969897976',
-                        to='whatsapp:+5521971135071'
+                        body="Hoje vai chover",
+                        from_='+12052933623',
+                        to='+'
                     )
