@@ -1,7 +1,5 @@
 import requests
-from config import API_KEY_CONFIG, LATITUDE, LONGITUDE, PASSWORD, EMAIL_FROM, EMAIL_TO, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
-import smtplib
-import os
+from config import API_KEY_CONFIG, LATITUDE, LONGITUDE, PASSWORD, EMAIL_FROM, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 from twilio.rest import Client
 
 
