@@ -1,7 +1,7 @@
 import requests
 from datetime import datetime
 
-from config import APP_ID, APP_KEY, YOUR_AGE, YOUR_GENDER, YOUR_HEIGHT, YOUR_WEIGHT
+from config import APP_ID, APP_KEY, YOUR_AGE, YOUR_GENDER, YOUR_HEIGHT, YOUR_WEIGHT, AUTH
 
 #--->input_user---<
 
@@ -36,7 +36,7 @@ today_date = datetime.now().strftime("%d/%m/%Y")
 now_time = datetime.now().strftime("%X")
 
 sheety_headers = {
-"Authorization": "Bearer U2ltcGx5IGVudGVyIHlvdXIgZGF0YSB0aGVuIHB1c2ggdGhlIGVuY29kZSBidXR0b24uCg=="
+"Authorization": AUTH
 }
 
 for exercise in result['exercises']:
