@@ -9,7 +9,7 @@ sheet_endpoint = 'https://api.sheety.co/2ed037d0510709194f08a83f71d960dd/myWorko
 
 #--->exercise<---
 
-headers = {
+exercise_headers = {
     'x-app-id': APP_ID,
     'x-app-key':APP_KEY
 }
@@ -22,13 +22,17 @@ parameters_ = {
  "age":30
 }
 
-response = requests.post(url=exercise_endpoint, headers=headers, json=parameters_)
+response = requests.post(url=exercise_endpoint, headers=exercise_headers, json=parameters_)
 result = response.json()
 
 #--->sheety<---
 
 today_date = datetime.now().strftime("%d/%m/%Y")
 now_time = datetime.now().strftime("%X")
+
+sheety_headers = {
+"Authorization": "Bearer U2ltcGx5IGVudGVyIHlvdXIgZGF0YSB0aGVuIHB1c2ggdGhlIGVuY29kZSBidXR0b24uCg=="
+}
 
 for exercise in result['exercises']:
     sheet_inputs = {
@@ -41,6 +45,6 @@ for exercise in result['exercises']:
         }
     }
 
-    sheety_response = requests.post(url=sheet_endpoint, json=sheet_inputs)
+    sheety_response = requests.post(url=sheet_endpoint, headers=sheety_headers ,json=sheet_inputs)
     print(sheety_response.status_code)
     print(sheety_response.text)
