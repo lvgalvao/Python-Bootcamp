@@ -1,6 +1,11 @@
-from config import APP_ID, APP_KEY
 import requests
 from datetime import datetime
+
+from config import APP_ID, APP_KEY, YOUR_AGE, YOUR_GENDER, YOUR_HEIGHT, YOUR_WEIGHT
+
+#--->input_user---<
+
+exercise_text = input("Tell me which exercises you did: ")
 
 #--->endpoints<---
 
@@ -15,11 +20,11 @@ exercise_headers = {
 }
 
 parameters_ = {
- "query":"ran 3 miles and walk 5 minutes",
- "gender":"female",
- "weight_kg":72.5,
- "height_cm":167.64,
- "age":30
+ "query":exercise_text,
+ "gender":YOUR_GENDER,
+ "weight_kg":YOUR_WEIGHT,
+ "height_cm":YOUR_HEIGHT,
+ "age":YOUR_AGE
 }
 
 response = requests.post(url=exercise_endpoint, headers=exercise_headers, json=parameters_)
