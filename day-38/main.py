@@ -53,3 +53,5 @@ for exercise in result['exercises']:
     sheety_response = requests.post(url=sheet_endpoint, headers=sheety_headers ,json=sheet_inputs)
     print(sheety_response.status_code)
     print(sheety_response.text)
+
+    # up
