@@ -1,13 +1,26 @@
-"""
-Program Requirements
-Use the Flight Search and Sheety API to populate your own copy of the Google Sheet with International Air Transport Association (IATA) codes for each city. Most of the cities in the sheet include multiple airports, you want the city code (not the airport code see here).
+import requests
+from config import SHEETY_PRICES_ENDPOINT
 
-Use the Flight Search API to check for the cheapest flights from tomorrow to 6 months later for all the cities in the Google Sheet.
 
-If the price is lower than the lowest price listed in the Google Sheet then send an SMS to your own number with the Twilio API.
+class DataManager:
+    def __init__(self):
+        self.destination_data = {}
 
-The SMS should include the departure airport IATA code, destination airport IATA code, departure city, destination city, flight price and flight dates. e.g.
+    def get_destination_data(self):
+        response = requests.get(url=SHEETY_PRICES_ENDPOINT)
+        self.destination_data = response.json()["prices"]
+        return self.destination_data
 
-"""
-
-print("luciano ")
+    def get_destionation_code(self):
+        for city in self.destination_data:
+            print(city)
+            new_data = {
+                "price": {
+                    "iataCode":city["iataCode"]
+                }
+            }
+            response = requests.put(
+                url=f"{SHEETY_PRICES_ENDPOINT}/{city["id"]}",
+                json=new_data
+            )
+            print(response.text)
