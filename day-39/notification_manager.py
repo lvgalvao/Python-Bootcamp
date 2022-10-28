@@ -1,0 +1,2 @@
+class NotificationManager:
+    pass
