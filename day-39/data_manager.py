@@ -10,3 +10,6 @@ class DataManager:
         response = requests.get(url=SHEETY_PRICES_ENDPOINT)
         self.destination_data = response.json()["prices"]
         return self.destination_data
+
+
+# just a comment
