@@ -2,7 +2,7 @@
 
 This project combines differents APIs to create a cheap flight finder
 
-<img src="https://github.com/lvgalvao/Python-Bootcamp/blob/main/day-39/data/project_overview.png" alt="Project Overview" width="400"/>
+<img src="https://github.com/lvgalvao/Python-Bootcamp/blob/main/day-39/data/project_overview.png" alt="Project Overview" width="700"/>
 
 
 ![Project Overview](https://github.com/lvgalvao/Python-Bootcamp/blob/main/day-39/data/project_overview.png "Project Overview").
