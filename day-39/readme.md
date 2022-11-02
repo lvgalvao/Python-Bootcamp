@@ -1,6 +1,6 @@
 ## Flight Deal Finder
 
-![Project Overview](/data/project_overview.png "Project Overview").
+![Project Overview](https://github.com/lvgalvao/Python-Bootcamp/blob/main/day-39/data/project_overview.png "Project Overview").
 
 # 1)Use the Flight Search and Sheety API to populate your own copy of the Google Sheet with
 # International Air Transport Association (IATA) codes for each city. Most of the cities in the
