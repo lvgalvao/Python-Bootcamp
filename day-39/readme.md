@@ -1,21 +1,9 @@
-## Flight Deal Finder
+## The cheapest flights tickets
 
-This project combines differents APIs to create a cheap flight finder
+Save up to 60% on airline tickets.
 
-<img src="https://github.com/lvgalvao/Python-Bootcamp/blob/main/day-39/data/project_overview.png" alt="Project Overview" width="700"/>
+## Functions
 
-Requirements:
-
-1 - Use the Flight Search and Sheety API to populate your own copy of the Google Sheet with
-International Air Transport Association (IATA) codes for each city. Most of the cities in the
-sheet include multiple airports, you want the city code (not the airport code see here).
-
-2 - Use the Flight Search API to check for the cheapest flights from tomorrow to 6 months later for
-all the cities in the Google Sheet.
-
-3 - If the price is lower than the lowest price listed in the Google Sheet then send an SMS to
-your own number with the Twilio API.
-
-4 - The SMS should include the departure airport IATA code, destination airport IATA code,
-departure city, destination city, flight price and flight dates. e.g.
-
+Integrate with Google Sheet to personalize your search (e.g. to looking for cities that you want to go to)
+Use the Flight Search API to check for the cheapest flights integrating hundreds of airlines companies
+Send SMS with the best tickets using Twillio API
