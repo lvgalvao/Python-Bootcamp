@@ -1,2 +1,0 @@
-class FlightSearch:
-    pass
