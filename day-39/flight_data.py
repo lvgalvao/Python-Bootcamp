@@ -1,2 +1,0 @@
-class FlightData:
-    pass
