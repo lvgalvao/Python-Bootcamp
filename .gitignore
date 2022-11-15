@@ -5,6 +5,8 @@ __pycache__/
 *$py.class
 .vscode
 config.py
+html2text.py
+
 # C extensions
 *.so
 
