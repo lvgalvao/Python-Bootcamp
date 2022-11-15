@@ -1,17 +1,13 @@
 from bs4 import BeautifulSoup
+import requests
 
+response = requests.get("https://news.ycombinator.com/news")
 
-def main():
-    with open("days/day-45/website.html") as file:
-        contents = file.read()
+if response.status_code == 200:
+    yc_web_page = response.text
 
-        soup = BeautifulSoup(contents, "html.parser")
+    soup = BeautifulSoup(yc_web_page, "html.parser")
+    article_tag = soup.find(name="span", class_="titleline")
+    article_text = article_tag.getText()
 
-        # list of tags (try a and p)
-        all_anchor_tags = soup.find_all(name="a")
-
-        return print(all_anchor_tags)
-
-
-if __name__ == "__main__":
-    main()
+    print(article_text)
